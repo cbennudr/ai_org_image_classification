@@ -1,1 +1,1 @@
-# ai_org_image_clasification
+# Image Classification
