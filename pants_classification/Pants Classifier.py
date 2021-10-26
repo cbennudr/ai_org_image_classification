@@ -21,6 +21,7 @@ loss_fn = keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 optimizer = "adam"
 
 # Model (Change to improve model)
+# Different layers can be researched at https://www.tensorflow.org/api_docs/python/tf/keras/layers
 # Default model contains four layers, excluding the inputs:
 # Flatten - Convert image array to a 1-D vector
 #   input_shape determines the inputs of the network
@@ -29,10 +30,10 @@ optimizer = "adam"
 #   20% of the time to prevent overfitting
 # Dense with 2 nodes - Output layer with no activation function applied
 model = keras.models.Sequential()
-model.add(keras.layers.Flatten(input_shape=image_dim))
+model.add(keras.layers.Flatten(input_shape=image_dim))  # Do not change
 model.add(keras.layers.Dense(128, activation="relu"))
 model.add(keras.layers.Dropout(0.2))
-model.add(keras.layers.Dense(2))
+model.add(keras.layers.Dense(2))  # Final layer outputs = number of labels
 
 
 def resize(image, dimensions):
