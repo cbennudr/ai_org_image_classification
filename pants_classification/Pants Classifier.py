@@ -12,7 +12,7 @@ labels_name = "labels.csv"
 label_column = "Pants/Shorts"
 image_dim = (400, 400)  # (width, height)
 stretch_images = True  # Stretch or crop images to fit aspect ratio
-k_folds = 2
+k_folds = 5
 
 # Parameters (Change to improve model)
 epochs = 5
@@ -131,7 +131,7 @@ for i in range(k_folds):
 
     model.fit(X_train, y_train, epochs=epochs)
 
-    responses = np.append(responses, model.predict(X_test).argmax(axis=0))
+    responses = np.append(responses, model.predict(X_test).argmax(axis=1))
     answer_key = np.append(answer_key, y_test)
 
 # Evaluate the model
